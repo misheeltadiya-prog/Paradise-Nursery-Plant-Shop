@@ -2,16 +2,10 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <div className="about-us">
-      <h2>About Paradise Nursery</h2>
-      <p>
-        Welcome to Paradise Nursery, your one-stop destination for beautiful 
-        and healthy plants. We are passionate about bringing nature closer to you.
-      </p>
-      <p>
-        Our mission is to make every home and office greener and more beautiful 
-        with carefully selected plants.
-      </p>
+    <div className="about-us-container">
+      <h2>About Us</h2>
+      <p>Welcome to Paradise Nursery, where we bring nature closer to you.</p>
+      <p>Our mission is to provide the best quality plants for your home and office.</p>
     </div>
   );
 };
