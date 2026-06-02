@@ -1,31 +1,35 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import ProductList from './ProductList';
 import CartItem from './CartItem';
 import AboutUs from './AboutUs';
 import './App.css';
 
 function App() {
+  const [showProductList, setShowProductList] = useState(false);
+  const [showCart, setShowCart] = useState(false);
+
   return (
-    <Router>
-      <div className="app">
-        <Routes>
-          <Route path="/" element={
-            <div className="landing-page">
-              <h1>Paradise Nursery</h1>
-              <p>Bring Nature Home</p>
-              <Link to="/products">
-                <button>Get Started</button>
-              </Link>
-            </div>
-          } />
-          
-          <Route path="/products" element={<ProductList />} />
-          <Route path="/cart" element={<CartItem />} />
-          <Route path="/about" element={<AboutUs />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="app">
+      {!showProductList && !showCart ? (
+        <div className="landing-page">
+          <h1>Welcome To Paradise Nursery</h1>
+          <p>Your one-stop shop for beautiful plants</p>
+          <button onClick={() => setShowProductList(true)}>
+            Get Started
+          </button>
+        </div>
+      ) : showProductList ? (
+        <ProductList 
+          setShowProductList={setShowProductList} 
+          setShowCart={setShowCart} 
+        />
+      ) : (
+        <CartItem 
+          setShowCart={setShowCart} 
+          setShowProductList={setShowProductList} 
+        />
+      )}
+    </div>
   );
 }
 
